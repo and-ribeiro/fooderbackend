@@ -1,6 +1,5 @@
 package com.fooder.fooder.model;
 
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;

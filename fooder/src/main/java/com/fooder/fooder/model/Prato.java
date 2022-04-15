@@ -1,5 +1,7 @@
 package com.fooder.fooder.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,22 +12,26 @@ public class Prato {
     private Integer id;
     private String nome;
     private String descricao;
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "restaurante_id")
+    private Double preco;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "restaurante_id", referencedColumnName = "id")
+    @JsonBackReference
     private Restaurante restaurante;
 
     public Prato() {}
 
-    public Prato(Integer id, String nome, String descricao, Restaurante restaurante) {
+    public Prato(Integer id, String nome, String descricao, Double preco, Restaurante restaurante) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
+        this.preco = preco;
         this.restaurante = restaurante;
     }
 
-    public Prato(String nome, String descricao, Restaurante restaurante) {
+    public Prato(String nome, String descricao, Double preco, Restaurante restaurante) {
         this.nome = nome;
         this.descricao = descricao;
+        this.preco = preco;
         this.restaurante = restaurante;
     }
 
@@ -51,6 +57,14 @@ public class Prato {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 
     public Restaurante getRestaurante() {
