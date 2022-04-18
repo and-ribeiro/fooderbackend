@@ -43,6 +43,5 @@ public class Seeding implements ApplicationRunner {
         Prato prato2 = new Prato("Bento Sukiya", "Teishoku de Tonkatsu (lombo de porco), arroz japonês, karaguê frito, gyoza.", 36.33 , restaurante1);
         pratoRepository.save(prato1);
         pratoRepository.save(prato2);
-
     }
 }

@@ -4,7 +4,6 @@ import com.fooder.fooder.model.Endereco;
 import com.fooder.fooder.repository.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
